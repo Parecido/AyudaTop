@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:controller="topologyreader.FXMLSearchController">
+    <stylesheets>
+        <URL value="@style/SearchTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <children>
+        <GridPane styleClass="grid" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="tableData" GridPane.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="table_checkbox" styleClass="column0" editable="false" sortable="false"
+                                 resizable="false"/>
+                    <TableColumn fx:id="table_filestart" styleClass="column1" editable="false" sortable="false"
+                                 resizable="false" text="Beginning"/>
+                    <TableColumn fx:id="table_fileend" styleClass="column1" editable="false" sortable="false"
+                                 resizable="false" text="End"/>
+                    <TableColumn fx:id="table_name" styleClass="column2" sortable="false" resizable="false"
+                                 text="Name"/>
+                </columns>
+            </TableView>
+            <VBox styleClass="vbox" GridPane.rowIndex="1">
+                <HBox styleClass="hbox">
+                    <Button onAction="#addRow" text="+"/>
+                    <Button onAction="#removeRow" text="-"/>
+                </HBox>
+                <Button onAction="#startSearch" text="Search"/>
+            </VBox>
+        </GridPane>
+    </children>
+</AnchorPane>

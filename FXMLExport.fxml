@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:controller="topologyreader.FXMLExportController">
+    <stylesheets>
+        <URL value="@style/ExportTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <GridPane styleClass="grid" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+        <Label text="File"/>
+        <Label text="Separator" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="fileBox" GridPane.columnIndex="1"/>
+        <ChoiceBox fx:id="delimiter" GridPane.rowIndex="1" GridPane.columnIndex="1">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Comma (,)"/>
+                    <String fx:value="Semicolon (;)"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <HBox styleClass="hbox" GridPane.rowIndex="2" GridPane.columnSpan="2">
+            <Button text="Export" onAction="#startExport"/>
+        </HBox>
+    </GridPane>
+</AnchorPane>

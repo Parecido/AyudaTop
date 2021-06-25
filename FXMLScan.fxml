@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="200.0" prefWidth="300.0"
+            fx:controller="topologyreader.FXMLScanController">
+    <stylesheets>
+        <URL value="@style/ScanTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <children>
+        <GridPane styleClass="grid" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label text="First core:"/>
+                <ComboBox fx:id="core1" GridPane.columnIndex="1"/>
+                <Label text="Second core:" GridPane.rowIndex="1"/>
+                <ComboBox fx:id="core2" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <HBox styleClass="hbox" GridPane.rowIndex="2" GridPane.columnSpan="2">
+                    <children>
+                        <Button onAction="#startSearch" text="Scan"/>
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

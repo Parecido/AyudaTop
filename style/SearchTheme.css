@@ -1,0 +1,41 @@
+.grid {
+    -fx-alignment: center;
+    -fx-vgap: 10px;
+    -fx-hgap: 10px;
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.hbox {
+    -fx-alignment: center;
+    -fx-hgap: 10px;
+    -fx-spacing: 10px;
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.vbox {
+    -fx-alignment: center;
+    -fx-vgap: 10px;
+    -fx-spacing: 10px;
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.table-view {
+    -fx-pref-width: 500px;
+}
+
+.column0 {
+    -fx-alignment: center;
+    -fx-pref-width: 40px;
+}
+
+.column1 {
+    -fx-pref-width: 150px;
+}
+
+.column2 {
+    -fx-pref-width: 150px;
+}
+
+.combo-box {
+    -fx-pref-width: 150px;
+}

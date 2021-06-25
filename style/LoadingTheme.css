@@ -1,0 +1,28 @@
+.hbox {
+    -fx-alignment: center;
+    -fx-hgap: 10px;
+    -fx-spacing: 10px;
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.vbox {
+    -fx-alignment: center;
+    -fx-vgap: 10px;
+    -fx-spacing: 10px;
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.progress-bar {
+    -fx-pref-width: 350px;
+}
+
+/*.progress-bar > .bar {
+    -fx-background-color: linear-gradient(
+        from 0px .75em to .75em 0px,
+        repeat,
+        -fx-accent 0%,
+        -fx-accent 49%,
+        derive(-fx-accent, 30%) 50%,
+        derive(-fx-accent, 30%) 99%
+    );
+}*/

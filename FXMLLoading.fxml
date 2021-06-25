@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:controller="topologyreader.FXMLLoadingController">
+    <stylesheets>
+        <URL value="@style/LoadingTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <VBox styleClass="vbox">
+        <ProgressBar fx:id="progressBar"/>
+        <HBox styleClass="hbox">
+            <Label text="File name:"/>
+            <Label fx:id="fileName"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

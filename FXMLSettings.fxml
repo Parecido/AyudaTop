@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+<TabPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:controller="topologyreader.FXMLSettingsController">
+    <stylesheets>
+        <URL value="@style/SettingsTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <tabs>
+        <Tab fx:id="tabOverall" text="Overall" closable="false">
+            <GridPane styleClass="grid" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Label text="Work on:"/>
+                <ChoiceBox fx:id="overallName" GridPane.columnIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Attractor name"/>
+                            <String fx:value="Basin name"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Label text="Show core basins in table:" GridPane.rowIndex="1"/>
+                <ChoiceBox fx:id="showCores" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="No"/>
+                            <String fx:value="Yes"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Label text="Show grid lines:" GridPane.rowIndex="2"/>
+                <ChoiceBox fx:id="overallLine" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="No"/>
+                            <String fx:value="Yes"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <HBox styleClass="hbox" GridPane.rowIndex="3" GridPane.columnSpan="2">
+                    <Button onAction="#save" text="Save"/>
+                    <Button onAction="#restoreDefault" text="Restore defaults"/>
+                </HBox>
+            </GridPane>
+        </Tab>
+        <Tab fx:id="tabExport" text="Export" closable="false">
+            <GridPane styleClass="grid" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Label text="Define synapticity by:" GridPane.rowIndex="2"/>
+                <ChoiceBox fx:id="exportName" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Attractor name"/>
+                            <String fx:value="Basin name"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Label text="Unit:" GridPane.rowIndex="3"/>
+                <ChoiceBox fx:id="exportUnit" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Angstrem"/>
+                            <String fx:value="Bohr"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Label text="Save hydrogens:" GridPane.rowIndex="4"/>
+                <ChoiceBox fx:id="exportPrintH" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="No"/>
+                            <String fx:value="Yes"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+
+                <Label text="Asynaptic basin symbol:" GridPane.rowIndex="5"/>
+                <TextField fx:id="exportAsynaptic" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                <Label text="Monosynaptic basin symbol:" GridPane.rowIndex="6"/>
+                <TextField fx:id="exportMonosynaptic" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                <Label text="Disynaptic basin symbol:" GridPane.rowIndex="7"/>
+                <TextField fx:id="exportDisynaptic" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                <Label text="Polysynaptic basin symbol:" GridPane.rowIndex="8"/>
+                <TextField fx:id="exportPolysynaptic" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+                <Label text="Hydrogen basin symbol:" GridPane.rowIndex="9"/>
+                <TextField fx:id="exportHydrogensynaptic" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+
+                <HBox styleClass="hbox" GridPane.rowIndex="10" GridPane.columnSpan="2">
+                    <Button onAction="#save" text="Save"/>
+                    <Button onAction="#restoreDefault" text="Restore defaults"/>
+                </HBox>
+            </GridPane>
+        </Tab>
+    </tabs>
+</TabPane>

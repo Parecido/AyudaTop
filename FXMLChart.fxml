@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="topologyreader.FXMLChartController">
+    <stylesheets>
+        <URL value="@style/AppTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <LineChart fx:id="chart" verticalGridLinesVisible="false"
+               horizontalGridLinesVisible="false" animated="false"
+               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+        <xAxis>
+            <NumberAxis fx:id="xAxis" animated="false" side="BOTTOM"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="yAxis" animated="false" side="LEFT"/>
+        </yAxis>
+    </LineChart>
+    <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+            <Menu text="Data">
+                <items>
+                    <MenuItem onAction="#startEdit" text="Chart data"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+</AnchorPane>

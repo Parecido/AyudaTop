@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:controller="topologyreader.FXMLEditorController">
+    <stylesheets>
+        <URL value="@style/EditorTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <GridPane styleClass="grid" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+        <HBox styleClass="hbox">
+            <ComboBox fx:id="seriesBox"/>
+        </HBox>
+        <TableView fx:id="table" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="table_checkBox" styleClass="column0" editable="false" sortable="false"
+                             resizable="false"/>
+                <TableColumn fx:id="table_file" styleClass="column1" editable="false" sortable="false" resizable="false"
+                             text="Index"/>
+                <TableColumn fx:id="table_N" styleClass="column2" editable="false" sortable="false" resizable="false"
+                             text="Value"/>
+            </columns>
+        </TableView>
+        <VBox styleClass="vbox" GridPane.rowIndex="2">
+            <Button onAction="#delete" text="Delete selected"/>
+            <Button fx:id="button_sel" onAction="#selectAll" text="Select all"/>
+            <Button fx:id="button_export" onAction="#export" text="Export data"/>
+        </VBox>
+    </GridPane>
+</AnchorPane>

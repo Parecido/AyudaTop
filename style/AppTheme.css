@@ -1,0 +1,171 @@
+.grid1 {
+    -fx-hgap: 20px;
+    -fx-vgap: 5px;
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.grid2 {
+    -fx-alignment: center;
+    -fx-hgap: 20px;
+    -fx-vgap: 5px;
+}
+
+.hbox {
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.vbox {
+    -fx-padding: 0px 10px 10px 10px;
+}
+
+.tableTop {
+    -fx-pref-width: 950px;
+}
+
+.tableFile {
+    -fx-pref-width: 300px;
+}
+
+.column0 {
+    -fx-pref-width: 110px;
+    -fx-alignment: center;
+}
+
+.column1 {
+    -fx-pref-width: 90px;
+    -fx-alignment: center;
+}
+
+.column2 {
+    -fx-pref-width: 200px;
+    -fx-alignment: center;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+#disableLine .chart-series-line {
+    -fx-stroke: transparent;
+}
+
+#enableLine .chart-series-line {
+    -fx-stroke-width: 2px;
+}
+
+.chart-line-symbol { /* solid circle */
+    -fx-background-color: #f3622d;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px;
+}
+
+.default-color0.chart-line-symbol { /* solid circle */
+    -fx-background-color: #f3622d;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px;
+}
+
+.default-color1.chart-line-symbol { /* solid square */
+    -fx-background-color: #fba71b;
+    -fx-background-radius: 0;
+}
+
+.default-color2.chart-line-symbol { /* solid diamond */
+    -fx-background-color: #57b757;
+    -fx-background-radius: 0;
+    -fx-padding: 4px 2px 4px 2px;
+    -fx-shape: "M5,0 L10,9 L5,18 L0,9 Z";
+}
+
+.default-color3.chart-line-symbol { /* cross */
+    -fx-background-color: #41a9c9;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-shape: "M2,0 L5,4 L8,0 L10,0 L10,2 L6,5 L10,8 L10,10 L8,10 L5,6 L2,10 L0,10 L0,8 L4,5 L0,2 L0,0 Z";
+}
+
+.default-color4.chart-line-symbol { /* solid triangle */
+    -fx-background-color: #4258c9;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-shape: "M5,0 L10,8 L0,8 Z";
+}
+
+.default-color5.chart-line-symbol { /* hollow circle */
+    -fx-background-color: #9a42c8, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px;
+}
+
+.default-color6.chart-line-symbol { /* hollow square */
+    -fx-background-color: #c84164, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 0;
+}
+
+.default-color7.chart-line-symbol { /* hollow diamond */
+    -fx-background-color: #888888, white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 2.5;
+    -fx-padding: 4px 2px 4px 2px;
+    -fx-shape: "M5,0 L10,9 L5,18 L0,9 Z";
+}
+
+.default-color0.chart-legend-item-symbol { /* LEGEND solid circle */
+    -fx-background-color: #f3622d;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.default-color1.chart-legend-item-symbol { /* LEGEND solid square */
+    -fx-background-color: #fba71b;
+    -fx-background-radius: 0;
+    -fx-padding: 5px;
+}
+
+.default-color2.chart-legend-item-symbol { /* LEGEND solid diamond */
+    -fx-background-color: #57b757;
+    -fx-background-radius: 0;
+    -fx-padding: 7px 5px 7px 5px;
+    -fx-shape: "M5,0 L10,9 L5,18 L0,9 Z";
+}
+
+.default-color3.chart-legend-item-symbol { /* LEGEND cross */
+    -fx-background-color: #41a9c9;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-shape: "M2,0 L5,4 L8,0 L10,0 L10,2 L6,5 L10,8 L10,10 L8,10 L5,6 L2,10 L0,10 L0,8 L4,5 L0,2 L0,0 Z";
+    -fx-padding: 5px;
+}
+
+.default-color4.chart-legend-item-symbol { /* LEGEND solid triangle */
+    -fx-background-color: #4258c9;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-shape: "M5,0 L10,8 L0,8 Z";
+    -fx-padding: 5px;
+}
+
+.default-color5.chart-legend-item-symbol { /* LEGEND hollow circle */
+    -fx-background-color: #9a42c8, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.default-color6.chart-legend-item-symbol { /* LEGEND hollow square */
+    -fx-background-color: #c84164, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 0;
+    -fx-padding: 5px;
+}
+
+.default-color7.chart-legend-item-symbol { /* LEGEND hollow diamond */
+    -fx-background-color: #888888, white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 2.5;
+    -fx-padding: 7px 5px 7px 5px;
+    -fx-shape: "M5,0 L10,9 L5,18 L0,9 Z";
+}
+

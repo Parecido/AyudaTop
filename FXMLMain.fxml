@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="topologyreader.FXMLMainController">
+    <stylesheets>
+        <URL value="@style/AppTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <HBox styleClass="hbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+        <AnchorPane>
+            <VBox>
+                <GridPane styleClass="grid1">
+                    <children>
+                        <Label text="Selected file:"/>
+                        <Label fx:id="fileLabel" text="---" GridPane.columnIndex="1"/>
+                        <Label text="Files in directory:" GridPane.rowIndex="1"/>
+                        <Label fx:id="dirN" text="---" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label text="Files in memory:" GridPane.rowIndex="2"/>
+                        <Label fx:id="fileN" text="---" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Name match:" GridPane.rowIndex="3"/>
+                        <Label fx:id="nameError" text="---" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label text="Population error:" GridPane.rowIndex="4"/>
+                        <Label fx:id="populationError" text="---" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                    </children>
+                </GridPane>     
+                <GridPane styleClass="grid1">
+                    <children>
+                        <Label text="" GridPane.columnSpan="2"/>
+                        <Label text="Basins statistics" GridPane.halignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="1"/>
+
+                        <Label text="Number of basins:" GridPane.rowIndex="2"/>
+                        <Label text="Number of cores:" GridPane.rowIndex="3"/>
+                        <Label text="Number of monosynaptic basins:" GridPane.rowIndex="4"/>
+                        <Label text="Number of disynaptic basins:" GridPane.rowIndex="5"/>
+                        <Label text="Number of polysynaptic basins:" GridPane.rowIndex="6"/>
+                        <Label text="Number of asynaptic basins:" GridPane.rowIndex="7"/>
+                        <Label text="Number of dressed protons:" GridPane.rowIndex="8"/>
+
+                        <Label fx:id="labelBasinN" text="        " GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label fx:id="labelCoreN" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label fx:id="labelMonosinapticN" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <Label fx:id="labelDisinapticN" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        <Label fx:id="labelPolisinapticN" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                        <Label fx:id="labelAsynapticN" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                        <Label fx:id="labelDressedN" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+
+                        <Button text="List" onAction="#showBasins" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                        <Button text="List" onAction="#showCores" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                        <Button text="List" onAction="#showMBasins" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                        <Button text="List" onAction="#showDBasins" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+                        <Button text="List" onAction="#showPBasins" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+                        <Button text="List" onAction="#showABasins" GridPane.columnIndex="2" GridPane.rowIndex="7"/>
+                        <Button text="List" onAction="#showDressed" GridPane.columnIndex="2" GridPane.rowIndex="8"/>
+
+                        <Label text="" GridPane.columnSpan="2" GridPane.rowIndex="9"/>
+                        <Label text="Populations statistics" GridPane.halignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="10"/>
+
+                        <Label text="Basins with population above 1e:" GridPane.rowIndex="11"/>
+                        <Label text="Basins with population under 1e:" GridPane.rowIndex="12"/>
+
+                        <Label fx:id="labelBasinAbove" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+                        <Label fx:id="labelBasinUnder" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+
+                        <Button text="List" onAction="#showBasinAbove" GridPane.columnIndex="2" GridPane.rowIndex="11"/>
+                        <Button text="List" onAction="#showBasinUnder" GridPane.columnIndex="2" GridPane.rowIndex="12"/>
+
+                        <Label text="" GridPane.columnSpan="2" GridPane.rowIndex="13"/>
+                        <Label text="Attractors statistics" GridPane.halignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="14"/>
+
+                        <Label text="The lowest attractor value:" GridPane.rowIndex="15"/>
+                        <Label text="The highest attractor value:" GridPane.rowIndex="16"/>
+                        <Label text="Attractors above 0.5 ELF:" GridPane.rowIndex="17"/>
+                        <Label text="Attractors under 0.5 ELF:" GridPane.rowIndex="18"/>
+
+                        <Label fx:id="labelMinELF" GridPane.columnIndex="1" GridPane.rowIndex="15"/>
+                        <Label fx:id="labelMaxELF" GridPane.columnIndex="1" GridPane.rowIndex="16"/>
+                        <Label fx:id="labelAboveELF" GridPane.columnIndex="1" GridPane.rowIndex="17"/>
+                        <Label fx:id="labelUnderELF" GridPane.columnIndex="1" GridPane.rowIndex="18"/>
+
+                        <Button text="List" onAction="#showAttractorsMin" GridPane.columnIndex="2" GridPane.rowIndex="15"/>
+                        <Button text="List" onAction="#showAttractorsMax" GridPane.columnIndex="2" GridPane.rowIndex="16"/>
+                        <Button text="List" onAction="#showAttractorsAbove" GridPane.columnIndex="2" GridPane.rowIndex="17"/>
+                        <Button text="List" onAction="#showAttractorsUnder" GridPane.columnIndex="2" GridPane.rowIndex="18"/>
+                    </children>
+                </GridPane>
+            </VBox>
+        </AnchorPane>
+        <AnchorPane HBox.hgrow="ALWAYS">
+            <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+                <TableView fx:id="tableTop" styleClass="tableTop" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="table_id" styleClass="column1" editable="false"
+                                     resizable="false" text="Index"/>
+                        <TableColumn fx:id="table_bas" styleClass="column0" editable="false"
+                                     resizable="false" text="Basin"/>
+                        <TableColumn fx:id="table_N" styleClass="column1" editable="false"
+                                     resizable="false" text="N"/>
+                        <TableColumn fx:id="table_pab" styleClass="column1" editable="false"
+                                     resizable="false" text="PAB"/>
+                        <TableColumn fx:id="table_paa" styleClass="column1" editable="false"
+                                     resizable="false" text="PAA"/>
+                        <TableColumn fx:id="table_pbb" styleClass="column1" editable="false"
+                                     resizable="false" text="PBB"/>
+                        <TableColumn fx:id="table_s2" styleClass="column1" editable="false"
+                                     resizable="false" text="S2"/>
+                        <TableColumn fx:id="table_std" styleClass="column1" editable="false"
+                                     resizable="false" text="STD"/>
+                        <TableColumn fx:id="table_att" styleClass="column0" editable="false"
+                                     resizable="false" text="Attractor"/>
+                        <TableColumn fx:id="table_elf" styleClass="column1" editable="false"
+                                     resizable="false" text="ELF"/>
+                    </columns>
+                </TableView>
+                <Label text="Filter:"/>
+                <TextField fx:id="filterField"/>
+            </VBox>
+        </AnchorPane>
+        <AnchorPane HBox.hgrow="ALWAYS">
+            <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+                <VBox styleClass="vbox">
+                    <TableView fx:id="tableFile" styleClass="tableFile" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="table_index" styleClass="column1" editable="false" sortable="false"
+                                         resizable="false" text="Index"/>
+                            <TableColumn fx:id="table_file" styleClass="column2" editable="false" sortable="false"
+                                         resizable="false" text="File name"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </HBox>
+        </AnchorPane>
+    </HBox>
+    <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem onAction="#selectFile" text="Select file"/>
+                    <Menu text="Select folder">
+                        <MenuItem onAction="#selectDirectory" text="Multiple files"/>
+                        <MenuItem onAction="#selectDirectoryFull" text="IRC path"/>
+                    </Menu>
+                    <MenuItem fx:id="menuExport" disable="true" onAction="#startExport" text="Export data"/>
+                    <MenuItem onAction="#startSettings" text="Settings"/>
+                </items>
+            </Menu>
+            <Menu text="Basins">
+                <items>
+                    <MenuItem fx:id="menuSearch" disable="true" onAction="#startSearch" text="Search"/>
+                    <MenuItem fx:id="menuScan" disable="true" onAction="#startScan" text="Scan"/>
+                </items>
+            </Menu>
+            <Menu text="Tools">
+                <items>
+                    <MenuItem fx:id="menuExportAtom" disable="true" onAction="#exportAtoms" text="Export atoms"/>
+                    <MenuItem fx:id="menuExportAtt" disable="true" onAction="#exportAttractors"
+                              text="Export attractors"/>
+                    <MenuItem fx:id="menuHausdorff" disable="true" onAction="#calculateHausdorff"
+                              text="Hausdorff distance"/>
+                </items>
+            </Menu>
+            <Menu text="Help">
+                <items>
+                    <MenuItem onAction="#showVersion" text="Version"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+</AnchorPane>

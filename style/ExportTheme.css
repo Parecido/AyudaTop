@@ -1,0 +1,17 @@
+.grid {
+    -fx-alignment: center;
+    -fx-vgap: 10px;
+    -fx-hgap: 10px;
+    -fx-padding: 30px 30px 30px 30px;
+}
+
+.combo-box {
+    -fx-pref-width: 175px;
+}
+
+.hbox {
+    -fx-alignment: center;
+    -fx-hgap: 10px;
+    -fx-spacing: 10px;
+    -fx-padding: 10px 10px 10px 10px;
+}

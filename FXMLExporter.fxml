@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefWidth="350.0"
+            fx:controller="topologyreader.FXMLExporterController">
+    <stylesheets>
+        <URL value="@style/ExporterTheme.css"/>
+        <URL value="@style/bootstrap3.css"/>
+    </stylesheets>
+    <children>
+        <GridPane styleClass="grid" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label text="File:"/>
+                <ComboBox fx:id="filesBox" GridPane.columnIndex="1"/>
+                <VBox styleClass="vbox" GridPane.rowIndex="1" GridPane.columnSpan="2">
+                    <children>
+                        <Button onAction="#exportSingle" text="Export selected file"/>
+                        <Button onAction="#exportMultipleSeparate" text="Export all files separately"/>
+                        <Button onAction="#exportMultipleOne" text="Export all files together"/>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
