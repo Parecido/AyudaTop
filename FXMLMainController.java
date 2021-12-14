@@ -37,7 +37,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
 import topologyreader.data.Basin;
-import topologyreader.data.Statistic;
+import topologyreader.data.Statistics;
 
 public class FXMLMainController implements Initializable {
     @FXML private Label fileLabel, dirN, fileN, nameError, populationError;
@@ -111,38 +111,38 @@ public class FXMLMainController implements Initializable {
                     nameError.setText(newValue.calculateSynError());
                     populationError.setText(newValue.calculatePopError());
                     
-                    Statistic statistic = newValue.getStatistic();
+                    Statistics statistics = newValue.getStatistics();
                     List<Basin> basins, cores, mBasin, dBasin, pBasin, aBasin, dressed;
                     List<Basin> basinAbove, basinUnder;
                     List<Basin> above, under;
                     
-                    basins = statistic.getBasins();
-                    cores = statistic.getCores();
+                    basins = statistics.getBasins();
+                    cores = statistics.getCores();
                         
                     if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                        mBasin = statistic.getMonosinapticA();
-                        dBasin = statistic.getDisinapticA();
-                        pBasin = statistic.getPolisinapticA();
-                        aBasin = statistic.getAsynapticA();
-                        dressed = statistic.getDressedA();
+                        mBasin = statistics.getMonosinapticA();
+                        dBasin = statistics.getDisinapticA();
+                        pBasin = statistics.getPolisinapticA();
+                        aBasin = statistics.getAsynapticA();
+                        dressed = statistics.getDressedA();
                         
-                        basinAbove = statistic.getBasinAboveA();
-                        basinUnder = statistic.getBasinUnderA();
+                        basinAbove = statistics.getBasinAboveA();
+                        basinUnder = statistics.getBasinUnderA();
                         
-                        above = statistic.getAttractorAboveA();
-                        under = statistic.getAttractorUnderA();
+                        above = statistics.getAttractorAboveA();
+                        under = statistics.getAttractorUnderA();
                     } else {
-                        mBasin = statistic.getMonosinapticB();
-                        dBasin = statistic.getDisinapticB();
-                        pBasin = statistic.getPolisinapticB();
-                        aBasin = statistic.getAsynapticB();
-                        dressed = statistic.getDressedB();
+                        mBasin = statistics.getMonosinapticB();
+                        dBasin = statistics.getDisinapticB();
+                        pBasin = statistics.getPolisinapticB();
+                        aBasin = statistics.getAsynapticB();
+                        dressed = statistics.getDressedB();
       
-                        basinAbove = statistic.getBasinAboveB();
-                        basinUnder = statistic.getBasinUnderB();
+                        basinAbove = statistics.getBasinAboveB();
+                        basinUnder = statistics.getBasinUnderB();
 
-                        above = statistic.getAttractorAboveB();
-                        under = statistic.getAttractorUnderB();
+                        above = statistics.getAttractorAboveB();
+                        under = statistics.getAttractorUnderB();
                     }
                     
                     labelBasinN.setText(Integer.toString(basins.size()));
@@ -156,8 +156,8 @@ public class FXMLMainController implements Initializable {
                     labelBasinAbove.setText(Integer.toString(basinAbove.size()));
                     labelBasinUnder.setText(Integer.toString(basinUnder.size()));
                     
-                    labelMinELF.setText(Float.toString(statistic.getMinELF()));
-                    labelMaxELF.setText(Float.toString(statistic.getMaxELF()));
+                    labelMinELF.setText(Float.toString(statistics.getMinELF()));
+                    labelMaxELF.setText(Float.toString(statistics.getMaxELF()));
                     labelAboveELF.setText(Integer.toString(above.size()));
                     labelUnderELF.setText(Integer.toString(under.size()));
                 }
@@ -648,10 +648,10 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Basins [" + file.getName() + "]";
 
-            List<Basin> basins = statistic.getBasins();
+            List<Basin> basins = statistics.getBasins();
             showBasinTable(basins, title);
         }
     }
@@ -661,10 +661,10 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Cores [" + file.getName() + "]";
 
-            List<Basin> cores = statistic.getCores();
+            List<Basin> cores = statistics.getCores();
             showBasinTable(cores, title);
         }
     }
@@ -674,14 +674,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Monosynaptic basins [" + file.getName() + "]";
 
             List<Basin> mBasin;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                mBasin = statistic.getMonosinapticA();
+                mBasin = statistics.getMonosinapticA();
             } else {
-                mBasin = statistic.getMonosinapticB();
+                mBasin = statistics.getMonosinapticB();
             }
 
             showBasinTable(mBasin, title);
@@ -693,14 +693,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Disynaptic basins [" + file.getName() + "]";
 
             List<Basin> dBasin;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                dBasin = statistic.getDisinapticA();
+                dBasin = statistics.getDisinapticA();
             } else {
-                dBasin = statistic.getDisinapticB();
+                dBasin = statistics.getDisinapticB();
             }
 
             showBasinTable(dBasin, title);
@@ -712,14 +712,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Polysynaptic basins [" + file.getName() + "]";
 
             List<Basin> pBasin;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                pBasin = statistic.getPolisinapticA();
+                pBasin = statistics.getPolisinapticA();
             } else {
-                pBasin = statistic.getPolisinapticB();
+                pBasin = statistics.getPolisinapticB();
             }
 
             showBasinTable(pBasin, title);
@@ -731,14 +731,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Asynaptic basins [" + file.getName() + "]";
 
             List<Basin> aBasin;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                aBasin = statistic.getAsynapticA();
+                aBasin = statistics.getAsynapticA();
             } else {
-                aBasin = statistic.getAsynapticB();
+                aBasin = statistics.getAsynapticB();
             }
 
             showBasinTable(aBasin, title);
@@ -750,14 +750,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Basins with population above 1e [" + file.getName() + "]";
 
             List<Basin> basinAbove;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                basinAbove = statistic.getBasinAboveA();
+                basinAbove = statistics.getBasinAboveA();
             } else {
-                basinAbove = statistic.getBasinAboveB();
+                basinAbove = statistics.getBasinAboveB();
             }
 
             showBasinTable(basinAbove, title);
@@ -769,14 +769,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Basins with population under 1e [" + file.getName() + "]";
 
             List<Basin> basinUnder;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                basinUnder = statistic.getBasinUnderA();
+                basinUnder = statistics.getBasinUnderA();
             } else {
-                basinUnder = statistic.getBasinUnderB();
+                basinUnder = statistics.getBasinUnderB();
             }
 
             showBasinTable(basinUnder, title);
@@ -788,14 +788,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "The lowest attractor value [" + file.getName() + "]";
 
             List<Basin> min;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                min = statistic.getMinListA();
+                min = statistics.getMinListA();
             } else {
-                min = statistic.getMinListB();
+                min = statistics.getMinListB();
             }
 
             showAttractorTable(min, title);
@@ -807,14 +807,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "The highest attractor value [" + file.getName() + "]";
 
             List<Basin> max;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                max = statistic.getMaxListA();
+                max = statistics.getMaxListA();
             } else {
-                max = statistic.getMaxListB();
+                max = statistics.getMaxListB();
             }
 
             showAttractorTable(max, title);
@@ -826,14 +826,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Attractors above 0.5 ELF [" + file.getName() + "]";
 
             List<Basin> above;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                above = statistic.getAttractorAboveA();
+                above = statistics.getAttractorAboveA();
             } else {
-                above = statistic.getAttractorAboveB();
+                above = statistics.getAttractorAboveB();
             }
 
             showAttractorTable(above, title);
@@ -845,14 +845,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Attractors under 0.5 ELF [" + file.getName() + "]";
 
             List<Basin> under;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                under = statistic.getAttractorUnderA();
+                under = statistics.getAttractorUnderA();
             } else {
-                under = statistic.getAttractorUnderB();
+                under = statistics.getAttractorUnderB();
             }
 
             showAttractorTable(under, title);
@@ -864,14 +864,14 @@ public class FXMLMainController implements Initializable {
         DataIRC data = (DataIRC) tableFile.getSelectionModel().getSelectedItem();
         if (data != null) {
             FileResult file = data.getFileResult();
-            Statistic statistic = data.getStatistic();
+            Statistics statistics = data.getStatistics();
             String title = "Dressed protons [" + file.getName() + "]";
 
             List<Basin> dressed;
             if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                dressed = statistic.getDressedA();
+                dressed = statistics.getDressedA();
             } else {
-                dressed = statistic.getDressedB();
+                dressed = statistics.getDressedB();
             }
 
             showBasinTable(dressed, title);

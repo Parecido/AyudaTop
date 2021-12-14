@@ -91,11 +91,11 @@ public class FXMLLoadingController implements Initializable {
                                     int index = firstIndex + (i - removeIndex);
                                     file.setIndex(index);
                                     
-                                    Statistic statistic = reader.getStatistics();
+                                    Statistics statistics = reader.getStatistics();
                                     float intDensity = reader.getIntDensity();
                                     float sumPopulation = reader.getSumPopulation();
 
-                                    dataIRC.add(new DataIRC(file, attractors, basins, atoms, statistic, intDensity, sumPopulation));
+                                    dataIRC.add(new DataIRC(file, attractors, basins, atoms, statistics, intDensity, sumPopulation));
                                 } else {
                                     Platform.runLater(() -> {
                                         String title = "Loading error";

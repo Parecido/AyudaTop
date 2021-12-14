@@ -4,5 +4,5 @@ public enum Mode {
     SEARCH,
     SCAN,
     HAUSDORFF,
-    STATISTIC
+    STATISTICS
 }

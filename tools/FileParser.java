@@ -148,8 +148,8 @@ public class FileParser {
                 .splitToList(line);
     }
     
-    public Statistic getStatistics() {
-        Statistic statistic = new Statistic();
+    public Statistics getStatistics() {
+        Statistics statistics = new Statistics();
         for (int i = 0; i < attractors.size(); i++) {
             Attractor attractor = attractors.get(i);
             Basin basin = basins.get(i);
@@ -167,33 +167,33 @@ public class FileParser {
             String S2 = basin.getS2();
             String STD = basin.getSTD();
 
-            statistic.getBasins().add(basin);
+            statistics.getBasins().add(basin);
 
             Basin basinWithAttractorNameELFvalue = new Basin(id, name, ELF, N, PAB, PAA, PBB, S2, STD);
             if (name.startsWith("V(")) {
                 if (name.contains("Asyn")) {
-                    statistic.getAsynapticA().add(basinWithAttractorNameELFvalue);
+                    statistics.getAsynapticA().add(basinWithAttractorNameELFvalue);
                 } else {
                     switch (name.split(",").length) {
                         case 2:
-                            statistic.getDisinapticA().add(basinWithAttractorNameELFvalue);
+                            statistics.getDisinapticA().add(basinWithAttractorNameELFvalue);
                             break;
                         case 1:
                             if (name.startsWith("V(H")) {
                                 if (name.startsWith("V(H)") || Character.isDigit(name.charAt(3))) { 
-                                    statistic.getDressedA().add(basinWithAttractorNameELFvalue);
+                                    statistics.getDressedA().add(basinWithAttractorNameELFvalue);
                                 }
                             }
-                            statistic.getMonosinapticA().add(basinWithAttractorNameELFvalue);
+                            statistics.getMonosinapticA().add(basinWithAttractorNameELFvalue);
                             break;
                         default:
-                            statistic.getPolisinapticA().add(basinWithAttractorNameELFvalue);
+                            statistics.getPolisinapticA().add(basinWithAttractorNameELFvalue);
                             break;
                     }
                 }
 
-                addMinList(fELF, statistic, statistic.getMinListA(), basinWithAttractorNameELFvalue);
-                addMaxList(fELF, statistic, statistic.getMaxListA(), basinWithAttractorNameELFvalue);
+                addMinList(fELF, statistics, statistics.getMinListA(), basinWithAttractorNameELFvalue);
+                addMaxList(fELF, statistics, statistics.getMaxListA(), basinWithAttractorNameELFvalue);
             }
 
             name = basin.getName();
@@ -201,57 +201,57 @@ public class FileParser {
 
             if (name.startsWith("V(")) {
                 if (name.contains("Asyn")) {
-                    statistic.getAsynapticB().add(basinWithELFvalue);
+                    statistics.getAsynapticB().add(basinWithELFvalue);
                 } else {
                     switch (name.split(",").length) {
                         case 2:
-                            statistic.getDisinapticB().add(basinWithELFvalue);
+                            statistics.getDisinapticB().add(basinWithELFvalue);
                             break;
                         case 1:
                             if (name.startsWith("V(H")) {
                                 if (name.startsWith("V(H)") || Character.isDigit(name.charAt(3))) { 
-                                    statistic.getDressedB().add(basinWithELFvalue);
+                                    statistics.getDressedB().add(basinWithELFvalue);
                                 }
                             }
-                            statistic.getMonosinapticB().add(basinWithELFvalue);
+                            statistics.getMonosinapticB().add(basinWithELFvalue);
                             break;
                         default:
-                            statistic.getPolisinapticB().add(basinWithELFvalue);
+                            statistics.getPolisinapticB().add(basinWithELFvalue);
                             break;
                     }
                 }
             } else {
-                statistic.getCores().add(basinWithELFvalue);
+                statistics.getCores().add(basinWithELFvalue);
             }
 
-            addMinList(fELF, statistic, statistic.getMinListB(), basinWithELFvalue);
-            addMaxList(fELF, statistic, statistic.getMaxListB(), basinWithELFvalue);
+            addMinList(fELF, statistics, statistics.getMinListB(), basinWithELFvalue);
+            addMaxList(fELF, statistics, statistics.getMaxListB(), basinWithELFvalue);
 
             if (fELF >= 0.5) {
-                statistic.getAttractorAboveA().add(basinWithAttractorNameELFvalue);
-                statistic.getAttractorAboveB().add(basinWithELFvalue);
+                statistics.getAttractorAboveA().add(basinWithAttractorNameELFvalue);
+                statistics.getAttractorAboveB().add(basinWithELFvalue);
             } else {
-                statistic.getAttractorUnderA().add(basinWithAttractorNameELFvalue);
-                statistic.getAttractorUnderB().add(basinWithELFvalue);
+                statistics.getAttractorUnderA().add(basinWithAttractorNameELFvalue);
+                statistics.getAttractorUnderB().add(basinWithELFvalue);
             }
 
             if (fN >= 1f) {
-                statistic.getBasinAboveA().add(basinWithAttractorNameELFvalue);
-                statistic.getBasinAboveB().add(basinWithELFvalue);
+                statistics.getBasinAboveA().add(basinWithAttractorNameELFvalue);
+                statistics.getBasinAboveB().add(basinWithELFvalue);
             } else {
-                statistic.getBasinUnderA().add(basinWithAttractorNameELFvalue);
-                statistic.getBasinUnderB().add(basinWithELFvalue);
+                statistics.getBasinUnderA().add(basinWithAttractorNameELFvalue);
+                statistics.getBasinUnderB().add(basinWithELFvalue);
             }
         }
         
-        return statistic;
+        return statistics;
     }
 
-    private void addMinList(float ELF, Statistic statistic, List<Basin> list, Basin basin) {
+    private void addMinList(float ELF, Statistics statistics, List<Basin> list, Basin basin) {
         boolean isCore = basin.isCore();
 
-        if (ELF <= statistic.getMinELF() && !isCore) {
-            statistic.setMinELF(ELF);
+        if (ELF <= statistics.getMinELF() && !isCore) {
+            statistics.setMinELF(ELF);
 
             if (!list.isEmpty()) {
                 float value = Float.parseFloat(list.get(0).getVolume());
@@ -264,11 +264,11 @@ public class FileParser {
         }
     }
 
-    private void addMaxList(float ELF, Statistic statistic, List<Basin> list, Basin basin) {
+    private void addMaxList(float ELF, Statistics statistics, List<Basin> list, Basin basin) {
         boolean isCore = basin.isCore();
 
-        if ((ELF >= statistic.getMaxELF() && ELF < 1) && !isCore) {
-            statistic.setMaxELF(ELF);
+        if ((ELF >= statistics.getMaxELF() && ELF < 1) && !isCore) {
+            statistics.setMaxELF(ELF);
 
             if (!list.isEmpty()) {
                 float value = Float.parseFloat(list.get(0).getVolume());

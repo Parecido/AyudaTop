@@ -8,16 +8,16 @@ public class DataIRC {
     private final List<Attractor> attractors;
     private final List<Basin> basins;
     private final List<Atom> atoms;
-    private final Statistic statistic;
+    private final Statistics statistics;
     private final float intDensity;
     private final float sumPopulation;
     
-    public DataIRC(FileResult file, List<Attractor> attractors, List<Basin> basins, List<Atom> atoms, Statistic statistic, float intDensity, float sumPopulation) {
+    public DataIRC(FileResult file, List<Attractor> attractors, List<Basin> basins, List<Atom> atoms, Statistics statistics, float intDensity, float sumPopulation) {
         this.file = file;
         this.attractors = attractors;
         this.basins = basins;
         this.atoms = atoms;
-        this.statistic = statistic;
+        this.statistics = statistics;
         this.intDensity = intDensity;
         this.sumPopulation = sumPopulation;
     }
@@ -60,8 +60,8 @@ public class DataIRC {
                 .collect(Collectors.toList());
     }
     
-    public Statistic getStatistic() {
-        return statistic;
+    public Statistics getStatistics() {
+        return statistics;
     }
 
     public String calculateSynError() {

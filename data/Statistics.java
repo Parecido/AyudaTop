@@ -3,7 +3,7 @@ package topologyreader.data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Statistic {
+public class Statistics {
     private final List<Basin> basins = new ArrayList<>();
     private final List<Basin> cores = new ArrayList<>();
 

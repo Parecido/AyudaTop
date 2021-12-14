@@ -37,7 +37,7 @@ public class FXMLChartController extends FXMLController implements Initializable
     private Mode mode;
     private List<SearchTable> searchData;
     private List<Attractor> cores;
-    private int statisticType;
+    private int statisticsType;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -123,8 +123,8 @@ public class FXMLChartController extends FXMLController implements Initializable
         this.cores = cores;
     }
 
-    public void setStatisticType(int statisticType) {
-        this.statisticType = statisticType;
+    public void setStatisticsType(int statisticsType) {
+        this.statisticsType = statisticsType;
     }
 
     public void result() {
@@ -144,7 +144,7 @@ public class FXMLChartController extends FXMLController implements Initializable
             case HAUSDORFF:
                 yAxis.setLabel("Hausdorff distance");
                 break;
-            case STATISTIC:
+            case STATISTICS:
                 yAxis.setLabel("Number of basins");
                 break; 
             default:
@@ -195,7 +195,7 @@ public class FXMLChartController extends FXMLController implements Initializable
         result.setDataPoints(dataPoints);
         result.setSearchData(searchData);
         result.setCores(cores);
-        result.setStatisticType(statisticType);
+        result.setStatisticsType(statisticsType);
 
         if (mode == Mode.HAUSDORFF) {
             result.calculateHausdorff(dataIRC);

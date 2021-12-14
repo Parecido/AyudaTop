@@ -15,7 +15,7 @@ public class ResultParser {
     private Multimap<String, Point> dataPoints;
     private List<SearchTable> searchData;
     private List<Attractor> cores;
-    private int statisticType;
+    private int statisticsType;
 
     public ResultParser(Mode mode) {
         this.mode = mode;
@@ -37,8 +37,8 @@ public class ResultParser {
         this.cores = cores;
     }
 
-    public void setStatisticType(int statisticType) {
-        this.statisticType = statisticType;
+    public void setStatisticsType(int statisticsType) {
+        this.statisticsType = statisticsType;
     }
 
     public void parseData(DataIRC data) {
@@ -117,50 +117,50 @@ public class ResultParser {
                     }
                 }
                 break;
-            case STATISTIC:
-                Statistic statistic = data.getStatistic();
+            case STATISTICS:
+                Statistics statistics = data.getStatistics();
                 if (Integer.parseInt(settings.getProperty("search.name")) == 0) {
-                    switch (statisticType) {
+                    switch (statisticsType) {
                         case 0:
-                            dataPoints.put("Basins", new Point(data, statistic.getBasins().size()));
+                            dataPoints.put("Basins", new Point(data, statistics.getBasins().size()));
                             break;
                         case 1:
-                            dataPoints.put("Cores", new Point(data, statistic.getCores().size()));
+                            dataPoints.put("Cores", new Point(data, statistics.getCores().size()));
                             break;
                         case 2:
-                            dataPoints.put("Monosynaptic basins", new Point(data, statistic.getMonosinapticA().size()));
+                            dataPoints.put("Monosynaptic basins", new Point(data, statistics.getMonosinapticA().size()));
                             break;
                         case 3:
-                            dataPoints.put("Disynaptic basins", new Point(data, statistic.getDisinapticA().size()));
+                            dataPoints.put("Disynaptic basins", new Point(data, statistics.getDisinapticA().size()));
                             break;
                         case 4:
-                            dataPoints.put("Polysynaptic basins", new Point(data, statistic.getPolisinapticA().size()));
+                            dataPoints.put("Polysynaptic basins", new Point(data, statistics.getPolisinapticA().size()));
                             break;
                         case 5:
-                            dataPoints.put("Asynaptic basins", new Point(data, statistic.getAsynapticA().size()));
+                            dataPoints.put("Asynaptic basins", new Point(data, statistics.getAsynapticA().size()));
                             break;
                         default:
                             break;
                     }
                 } else {
-                    switch (statisticType) {
+                    switch (statisticsType) {
                         case 0:
-                            dataPoints.put("Basins", new Point(data, statistic.getBasins().size()));
+                            dataPoints.put("Basins", new Point(data, statistics.getBasins().size()));
                             break;
                         case 1:
-                            dataPoints.put("Cores", new Point(data, statistic.getCores().size()));
+                            dataPoints.put("Cores", new Point(data, statistics.getCores().size()));
                             break;
                         case 2:
-                            dataPoints.put("Monosynaptic basins", new Point(data, statistic.getMonosinapticB().size()));
+                            dataPoints.put("Monosynaptic basins", new Point(data, statistics.getMonosinapticB().size()));
                             break;
                         case 3:
-                            dataPoints.put("Disynaptic basins", new Point(data, statistic.getDisinapticB().size()));
+                            dataPoints.put("Disynaptic basins", new Point(data, statistics.getDisinapticB().size()));
                             break;
                         case 4:
-                            dataPoints.put("Polysynaptic basins", new Point(data, statistic.getPolisinapticB().size()));
+                            dataPoints.put("Polysynaptic basins", new Point(data, statistics.getPolisinapticB().size()));
                             break;
                         case 5:
-                            dataPoints.put("Asynaptic basins", new Point(data, statistic.getAsynapticB().size()));
+                            dataPoints.put("Asynaptic basins", new Point(data, statistics.getAsynapticB().size()));
                             break;
                         default:
                             break;
